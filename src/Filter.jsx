@@ -2,7 +2,7 @@ import { GlobalContext } from "./GlobalContext"
 import { useContext } from "react"
 
 export function Filter(){
-    const {string, setString } = useContext(GlobalContext)
+    const { string, setString } = useContext(GlobalContext)
 
     function handleSearch(e){
         console.log(e.target.value)

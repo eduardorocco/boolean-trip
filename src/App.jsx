@@ -5,8 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalContext } from './GlobalContext';
 import { useState } from 'react';
 
+
+
 function App() {
   const [string, setString ] = useState('')
+
+
   return (
     <GlobalContext.Provider value={{string, setString}}>
      <BrowserRouter>
