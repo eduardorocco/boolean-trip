@@ -3,40 +3,42 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { Accordion } from 'react-bootstrap';
 import { GlobalContext } from '../GlobalContext.jsx';
-import { useContext } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Filter } from '../Filter.jsx';
 import AddTravelers from '../components/AddTravelers.jsx';
 
 export default function GroupDetail() {
   const { string, personeReattive, setPersoneReattive } = useContext(GlobalContext);
   const { id } = useParams();
-  const { persone } = viaggi[id];
+  const { persone = [] } = viaggi[id] || {};
 
   useEffect(() => {
-    setPersoneReattive(
-      //filtro per ricerca persone
-      persone.filter((persona) => persona.nome.toLowerCase().includes(string.toLowerCase()) || persona.cognome.toLowerCase().includes(string.toLowerCase()))
-    );
+    if (persone.length > 0) {
+      setPersoneReattive(
+        persone.filter((persona) =>
+          persona.nome.toLowerCase().includes(string.toLowerCase()) ||
+          persona.cognome.toLowerCase().includes(string.toLowerCase())
+        )
+      );
+    }
   }, [string, persone]);
 
   return (
     <>
       <Container className="mt-5">
-        <Row className=" justify-content-between">
+        <Row className="justify-content-between">
           <Col className="col-6">
             <Link to="/" className="btn btn-primary mb-3 align-self-start mx-auto">
               Torna alla home
             </Link>
           </Col>
           <Col className="col-6 text-end">
-            <Filter placeholder='Cerca viaggiatori...' />
+            <Filter placeholder="Cerca viaggiatori..." />
           </Col>
         </Row>
         <Row className="row-gap-3">
           <h2 className="mt-5 text-center">Elenco Viaggiatori</h2>
-          {personeReattive.length > 0 &&
+          {personeReattive.length > 0 ? (
             personeReattive.map((persona, index) => (
               <Accordion key={index}>
                 <Accordion.Item eventKey={index}>
@@ -62,10 +64,15 @@ export default function GroupDetail() {
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
-            ))}
+            ))
+          ) : (
+            <div className="text-center mt-3">
+              <span>Nessun viaggiatore presente</span>
+            </div>
+          )}
         </Row>
       </Container>
-      <Container className='d-none d-md-block'>
+      <Container className="d-none d-md-block">
         <Row>
           <AddTravelers />
         </Row>
