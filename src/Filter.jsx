@@ -1,7 +1,7 @@
 import { GlobalContext } from './GlobalContext';
 import { useContext } from 'react';
 
-export function Filter() {
+export function Filter({ placeholder }) {
   const { string, setString } = useContext(GlobalContext);
 
   function handleSearch(e) {
@@ -15,7 +15,7 @@ export function Filter() {
         className=""
         type="text"
         name="search"
-        placeholder="Cerca..."
+        placeholder={placeholder}
         value={string}
         onChange={(e) => {
           handleSearch(e);

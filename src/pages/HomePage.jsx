@@ -28,7 +28,7 @@ export default function HomePage() {
             <h1>Viaggi</h1>
           </Col>
           <Col className="text-end align-self-center">
-            <Filter />
+            <Filter placeholder='Cerca viaggi...' />
           </Col>
         </Row>
       </Container>
@@ -59,7 +59,7 @@ export default function HomePage() {
       <Container className="mt-5 d-none d-md-block">
         <Row>
           <h2 className="text-center">Aggiungi viaggio</h2>
-          <AddTrip/>
+          <AddTrip />
         </Row>
       </Container>
     </>
