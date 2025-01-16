@@ -22,6 +22,7 @@ export default function GroupDetail() {
   }, [string, persone]);
 
   return (
+    <>
     <Container className="mt-5">
       <Row className=" justify-content-between">
         <Col className="col-6">
@@ -62,8 +63,13 @@ export default function GroupDetail() {
               </Accordion.Item>
             </Accordion>
           ))}
-        <AddTravelers />
       </Row>
     </Container>
+    <Container className='d-none d-md-block'>
+      <Row>
+      <AddTravelers  />
+      </Row>
+    </Container>
+    </>
   );
 }

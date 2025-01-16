@@ -56,10 +56,10 @@ export default function HomePage() {
           ))}
         </Row>
       </Container>
-      <Container className="mt-5">
+      <Container className="mt-5 d-none d-md-block">
         <Row>
           <h2 className="text-center">Aggiungi viaggio</h2>
-          <AddTrip />
+          <AddTrip/>
         </Row>
       </Container>
     </>
