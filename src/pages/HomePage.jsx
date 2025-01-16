@@ -1,5 +1,5 @@
 import viaggi from '../data/data.js';
-import { Container, Row, Card, Button } from 'react-bootstrap';
+import { Container, Row, Card, Button, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Filter } from '../Filter.jsx';
 import { GlobalContext } from '../GlobalContext.jsx';
@@ -23,27 +23,44 @@ export default function HomePage() {
   return (
     <>
       <Container className="mt-5">
-        <Filter />
-        <Row className="flex-column gap-2">
+        <Row className="d-flex justify-content-between">
+          <Col>
+            <h1>Viaggi</h1>
+          </Col>
+          <Col className='text-end align-self-center'>
+            <Filter/>
+          </Col>
+        </Row>
+      </Container>
+      <Container className="mt-5">
+        <Row className='gap-2'>
           {viaggiFinali.map((viaggio, index) => (
-            <Card key={index} style={{ width: '18rem' }}>
-              <Card.Body>
-                <Card.Title>{viaggio.luogo}</Card.Title>
-                <Card.Text>
-                  Inizio: {formatDate(viaggio.inizio)}
-                  <br />
-                  Fine: {formatDate(viaggio.fine)}
-                  <br />
-                </Card.Text>
-                <Link to={`/${index}`}>
-                  <Button>Elenco Viaggiatori</Button>
-                </Link>
-              </Card.Body>
-            </Card>
+            <Col md={4} >
+              <Card key={index} style={{ width: '18rem' }}>
+                <Card.Body>
+                  <Card.Title>{viaggio.luogo}</Card.Title>
+                  <Card.Text>
+                    Inizio: {formatDate(viaggio.inizio)}
+                    <br />
+                    Fine: {formatDate(viaggio.fine)}
+                    <br />
+                  </Card.Text>
+                  <Link to={`/${index}`}>
+                    <Button>Elenco Viaggiatori</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            </Col>
           ))}
         </Row>
       </Container>
-      <AddTrip />
+      <Container className='mt-5'>
+        <Row>
+          <h2>Aggiungi viaggio</h2>
+          <AddTrip />
+        </Row>
+      </Container>
+
     </>
   );
 }

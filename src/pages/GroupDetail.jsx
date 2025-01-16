@@ -24,11 +24,14 @@ export default function GroupDetail() {
 
   return (
     <Container className="mt-5">
+      <Row>
       <Link to="/" className="btn btn-primary mb-3">
         Torna alla home
       </Link>
       <Filter />
+      </Row>
       <Row className="gap-2">
+        <h1>Elenco Viaggiatori</h1>
         {personeReattive.map((persona, index) => (
           <Accordion key={index}>
             <Accordion.Item eventKey={index}>

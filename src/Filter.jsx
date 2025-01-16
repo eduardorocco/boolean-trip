@@ -11,7 +11,7 @@ export function Filter(){
 
     return(
      <div>
-        <input type="text" name="search" value={string} onChange={(e)=>{handleSearch(e)}}/>
+        <input type="text" name="search" placeholder="Cerca..." value={string} onChange={(e)=>{handleSearch(e)}}/>
      </div>   
     )
 }
