@@ -8,8 +8,9 @@ import viaggi from './data/data.js';
 
 function App() {
   const [string, setString] = useState('');
+
   const [viaggiFinali, setViaggiFinali] = useState(viaggi);
-  const [personeReattive, setPersoneReattive] = useState([])
+  const [personeReattive, setPersoneReattive] = useState([]);
 
   return (
     <GlobalContext.Provider value={{ string, setString, viaggiFinali, setViaggiFinali, personeReattive, setPersoneReattive }}>

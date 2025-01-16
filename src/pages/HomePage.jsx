@@ -27,15 +27,15 @@ export default function HomePage() {
           <Col>
             <h1>Viaggi</h1>
           </Col>
-          <Col className='text-end align-self-center'>
-            <Filter/>
+          <Col className="text-end align-self-center">
+            <Filter />
           </Col>
         </Row>
       </Container>
       <Container className="mt-5">
-        <Row className='gap-2'>
+        <Row className="gap-2">
           {viaggiFinali.map((viaggio, index) => (
-            <Col md={4} >
+            <Col key={index} md={4}>
               <Card key={index} style={{ width: '18rem' }}>
                 <Card.Body>
                   <Card.Title>{viaggio.luogo}</Card.Title>
@@ -54,13 +54,12 @@ export default function HomePage() {
           ))}
         </Row>
       </Container>
-      <Container className='mt-5'>
+      <Container className="mt-5">
         <Row>
           <h2>Aggiungi viaggio</h2>
           <AddTrip />
         </Row>
       </Container>
-
     </>
   );
 }
