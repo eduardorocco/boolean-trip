@@ -7,13 +7,13 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Filter } from '../Filter.jsx';
+import AddTravelers from '../components/AddTravelers.jsx';
 
 export default function GroupDetail() {
-  const { string } = useContext(GlobalContext);
+  const { string, personeReattive, setPersoneReattive } = useContext(GlobalContext);
   const { id } = useParams();
   const { persone } = viaggi[id];
 
-  const [personeReattive, setPersoneReattive] = useState(persone);
 
   useEffect(() => {
     setPersoneReattive(
@@ -49,6 +49,7 @@ export default function GroupDetail() {
             </Accordion.Item>
           </Accordion>
         ))}
+        <AddTravelers />
       </Row>
     </Container>
   );
