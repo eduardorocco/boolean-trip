@@ -22,7 +22,7 @@ export default function AddTravelers() {
   function handleSubmit(event) {
     event.preventDefault();
     setPersoneReattive([...personeReattive, formData]);
-    console.log(personeReattive)
+    // console.log(personeReattive)
     setFormData(initialFormData);
   }
 
