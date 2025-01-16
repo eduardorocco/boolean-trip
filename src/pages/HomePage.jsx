@@ -36,7 +36,7 @@ export default function HomePage() {
                   <br />
                 </Card.Text>
                 <Link to={`/${index}`}>
-                  <Button>Dettagli</Button>
+                  <Button>Elenco Viaggiatori</Button>
                 </Link>
               </Card.Body>
             </Card>
