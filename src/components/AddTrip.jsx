@@ -28,9 +28,9 @@ export default function AddTrip() {
 
   return (
     <>
-      <Container>
+      <Container className="pb-5">
         <Row>
-          <Form onSubmit={handleSubmit}>
+          <Form className="py-4 rounded-2 border border-body-secondary d-flex flex-column row-gap-3" onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Control name="luogo" onChange={handleChange} type="text" placeholder="Destinazione" value={formData.luogo} required />
             </Form.Group>

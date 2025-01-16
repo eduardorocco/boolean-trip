@@ -1,5 +1,5 @@
 import viaggi from '../data/data.js';
-import { Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { Accordion } from 'react-bootstrap';
 import { GlobalContext } from '../GlobalContext.jsx';
@@ -14,7 +14,6 @@ export default function GroupDetail() {
   const { id } = useParams();
   const { persone } = viaggi[id];
 
-
   useEffect(() => {
     setPersoneReattive(
       //filtro per ricerca persone
@@ -24,34 +23,45 @@ export default function GroupDetail() {
 
   return (
     <Container className="mt-5">
-      <Row>
-      <Link to="/" className="btn btn-primary mb-3">
-        Torna alla home
-      </Link>
-      <Filter />
+      <Row className=" justify-content-between">
+        <Col className="col-6">
+          <Link to="/" className="btn btn-primary mb-3 align-self-start mx-auto">
+            Torna alla home
+          </Link>
+        </Col>
+        <Col className="col-6 text-end">
+          <Filter />
+        </Col>
       </Row>
-      <Row className="gap-2">
-        <h1>Elenco Viaggiatori</h1>
-        {personeReattive.map((persona, index) => (
-          <Accordion key={index}>
-            <Accordion.Item eventKey={index}>
-              <Accordion.Header>
-                {persona.nome} {persona.cognome}
-              </Accordion.Header>
-              <Accordion.Body>
-                Codice fiscale: {persona.cod_fiscale}
-                <br />
-                Email: {persona.email}
-                <br />
-                Numero di telefono: {persona.numero_telefono}
-                <br />
-                Numero estero: {persona.numero_estero}
-                <br />
-                Contatto di emergenza: {persona.contatto_emergenza}
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        ))}
+      <Row className="row-gap-3">
+        <h2 className="mt-5 text-center">Elenco Viaggiatori</h2>
+        {personeReattive.length > 0 &&
+          personeReattive.map((persona, index) => (
+            <Accordion key={index}>
+              <Accordion.Item eventKey={index}>
+                <Accordion.Header>
+                  {persona.nome} {persona.cognome}
+                </Accordion.Header>
+                <Accordion.Body>
+                  <strong>Codice fiscale: </strong>
+                  {persona.cod_fiscale}
+                  <br />
+                  <strong>Email: </strong>
+                  {persona.email}
+                  <br />
+                  <strong>Numero di telefono: </strong>
+                  {persona.numero_telefono}
+                  <br />
+                  <strong>Numero estero: </strong>
+                  {persona.numero_estero}
+                  <br />
+                  <strong>Contatto di emergenza: </strong>
+                  {persona.contatto_emergenza}
+                  <br />
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          ))}
         <AddTravelers />
       </Row>
     </Container>

@@ -12,6 +12,7 @@ export function Filter() {
   return (
     <div>
       <input
+        className=""
         type="text"
         name="search"
         placeholder="Cerca..."

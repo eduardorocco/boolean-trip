@@ -18,7 +18,6 @@ export default function AddTravelers() {
 
   const { personeReattive, setPersoneReattive } = useContext(GlobalContext);
 
-
   function handleSubmit(event) {
     event.preventDefault();
     setPersoneReattive([...personeReattive, formData]);
@@ -29,12 +28,13 @@ export default function AddTravelers() {
   function handleChange(e) {
     // console.log(e.target.name, e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(personeReattive)
+    console.log(personeReattive);
   }
   return (
-    <Container>
+    <Container className="mt-5">
       <Row>
-        <Form onSubmit={handleSubmit}>
+        <h2 className="text-center mb-3">Aggiungi un nuovo partecipante</h2>
+        <Form className=" py-4 rounded-2 border border-body-secondary d-flex flex-column row-gap-3" onSubmit={handleSubmit}>
           <Form.Group>
             <Form.Label>Nome</Form.Label>
             <Form.Control name="nome" onChange={handleChange} type="text" placeholder="Nome" value={formData.nome} required />
@@ -70,7 +70,9 @@ export default function AddTravelers() {
             <Form.Control name="contatto_emergenza" onChange={handleChange} type="text" placeholder="Contatto di emergenza" value={formData.contatto_emergenza} required />
           </Form.Group>
 
-          <Button type="submit">Aggiungi</Button>
+          <Button className="mt-3" type="submit">
+            Aggiungi
+          </Button>
         </Form>
       </Row>
     </Container>

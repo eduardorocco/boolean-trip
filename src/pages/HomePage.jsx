@@ -38,7 +38,9 @@ export default function HomePage() {
             <Col key={index} className="col-12 col-sm-6  col-md-4 col-xl-3">
               <Card key={index}>
                 <Card.Body>
-                  <Card.Title>{viaggio.luogo}</Card.Title>
+                  <Card.Title>
+                    <strong>{viaggio.luogo}</strong>
+                  </Card.Title>
                   <Card.Text>
                     Inizio: {formatDate(viaggio.inizio)}
                     <br />
@@ -56,7 +58,7 @@ export default function HomePage() {
       </Container>
       <Container className="mt-5">
         <Row>
-          <h2>Aggiungi viaggio</h2>
+          <h2 className="text-center">Aggiungi viaggio</h2>
           <AddTrip />
         </Row>
       </Container>
