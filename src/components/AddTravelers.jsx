@@ -2,6 +2,7 @@ import { Button, Container, Row } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { useState, useContext } from 'react';
 import { GlobalContext } from '../GlobalContext.jsx';
+import data from '../data/data.js';
 
 const initialFormData = {
   nome: '',
@@ -13,7 +14,7 @@ const initialFormData = {
   contatto_emergenza: '',
 };
 
-export default function AddTravelers() {
+export default function AddTravelers( { id}) {
   const [formData, setFormData] = useState(initialFormData);
 
   const { personeReattive, setPersoneReattive } = useContext(GlobalContext);
@@ -21,7 +22,7 @@ export default function AddTravelers() {
   function handleSubmit(event) {
     event.preventDefault();
     setPersoneReattive([...personeReattive, formData]);
-    // console.log(personeReattive)
+    data[id].persone.push(formData);
     setFormData(initialFormData);
   }
 

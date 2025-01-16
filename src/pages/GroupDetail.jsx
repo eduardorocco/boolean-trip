@@ -27,12 +27,15 @@ export default function GroupDetail() {
     <>
       <Container className="mt-5">
         <Row className="justify-content-between">
-          <Col className="col-6">
+          <Col className="col-4">
             <Link to="/" className="btn btn-primary mb-3 align-self-start mx-auto">
               Torna alla home
             </Link>
           </Col>
-          <Col className="col-6 text-end">
+          <Col className='col-4 fs-1 text-center'>
+          <h2>{viaggi[id].luogo}</h2>
+          </Col>
+          <Col className="col-4 text-end">
             <Filter placeholder="Cerca viaggiatori..." />
           </Col>
         </Row>
@@ -74,7 +77,7 @@ export default function GroupDetail() {
       </Container>
       <Container className="d-none d-md-block">
         <Row>
-          <AddTravelers />
+          <AddTravelers id={ id } />
         </Row>
       </Container>
     </>

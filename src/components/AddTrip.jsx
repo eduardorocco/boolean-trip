@@ -2,11 +2,13 @@ import { useContext, useState } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { GlobalContext } from '../GlobalContext.jsx';
+import data from '../data/data.js';
 
 const initialFormData = {
   luogo: '',
   inizio: '',
   fine: '',
+  persone: []
 };
 
 export default function AddTrip() {
@@ -17,8 +19,10 @@ export default function AddTrip() {
   function handleSubmit(event) {
     event.preventDefault();
     setViaggiFinali([...viaggiFinali, formData]);
-
+    
+    data.push(formData);
     setFormData(initialFormData);
+
   }
 
   function handleChange(e) {
