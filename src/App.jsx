@@ -4,12 +4,14 @@ import GroupDetail from './pages/GroupDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalContext } from './GlobalContext';
 import { useState } from 'react';
+import viaggi from './data/data.js';
 
 function App() {
   const [string, setString] = useState('');
+  const [viaggiFinali, setViaggiFinali] = useState(viaggi);
 
   return (
-    <GlobalContext.Provider value={{ string, setString }}>
+    <GlobalContext.Provider value={{ string, setString, viaggiFinali, setViaggiFinali }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
