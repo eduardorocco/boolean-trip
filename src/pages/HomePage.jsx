@@ -33,10 +33,10 @@ export default function HomePage() {
         </Row>
       </Container>
       <Container className="mt-5">
-        <Row className="gap-2">
+        <Row className="row-gap-5">
           {viaggiFinali.map((viaggio, index) => (
-            <Col key={index} md={4}>
-              <Card key={index} style={{ width: '18rem' }}>
+            <Col key={index} className="col-12 col-sm-6  col-md-4 col-xl-3">
+              <Card key={index}>
                 <Card.Body>
                   <Card.Title>{viaggio.luogo}</Card.Title>
                   <Card.Text>
